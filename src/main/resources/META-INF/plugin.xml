@@ -1,0 +1,49 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>com.github.g4l4.plugins.cep</id>
+    <name><![CDATA[Compiler Explorer Extension]]></name>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
+    <description>
+        <![CDATA[
+<h1>Compiler Explorer Extension</h1>
+
+<br/>
+
+<p>
+    Plugin allow open a file in Compiler Explorer (godbolt.org) from EditorPopupMenu (right-click in editor) or using
+    `ctrl meta shift C` / `ctrl meta shift E` hotkeys
+</p>
+
+<br/>
+
+<a href="https://github.com/g4l9/compiler-explorer-plugin/">GitHub</a> |
+<a href="https://github.com/g4l9/compiler-explorer-plugin/issues">Issues</a>
+
+<br/>
+]]>
+    </description>
+    <vendor>g4l9</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.jcef</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileEditorProvider implementation="com.github.g4l9.plugin.cep.file.JcefFileEditorProvider"/>
+    </extensions>
+
+    <actions>
+        <action id="OpenCompilerExplorerInEmbeddedBrowserAction"
+                class="com.github.g4l9.plugin.cep.action.OpenCompilerExplorerInEmbeddedBrowserAction">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl meta shift C"/>
+        </action>
+        <action id="OpenCompilerExplorerInBrowserAction"
+                class="com.github.g4l9.plugin.cep.action.OpenCompilerExplorerInBrowserAction">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl meta shift E"/>
+        </action>
+    </actions>
+
+</idea-plugin>
