@@ -1,3 +1,6 @@
+Archive. Moved to:
+https://codeberg.org/g4l9/compiler-explorer-plugin
+
 # Compiler Explorer Extension
 
 [![Version](https://img.shields.io/jetbrains/plugin/v/com.github.g4l9.cep)](https://plugins.jetbrains.com/plugin/33026-compiler-explorer-extension)
